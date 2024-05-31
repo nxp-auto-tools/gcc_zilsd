@@ -251,6 +251,7 @@ static const struct riscv_ext_version riscv_ext_version_table[] =
   {"zifencei", ISA_SPEC_CLASS_20190608, 2, 0},
 
   {"zicond", ISA_SPEC_CLASS_NONE, 1, 0},
+  {"zilsd",ISA_SPEC_CLASS_NONE, 2, 2},
 
   {"za64rs",  ISA_SPEC_CLASS_NONE, 1, 0},
   {"za128rs", ISA_SPEC_CLASS_NONE, 1, 0},
@@ -1615,6 +1616,7 @@ static const riscv_ext_flag_table_t riscv_ext_flag_table[] =
   {"zicsr",    &gcc_options::x_riscv_zi_subext, MASK_ZICSR},
   {"zifencei", &gcc_options::x_riscv_zi_subext, MASK_ZIFENCEI},
   {"zicond",   &gcc_options::x_riscv_zi_subext, MASK_ZICOND},
+  {"zilsd", &gcc_options::x_riscv_zi_subext, MASK_ZILSD},
 
   {"za64rs", &gcc_options::x_riscv_za_subext, MASK_ZA64RS},
   {"za128rs", &gcc_options::x_riscv_za_subext, MASK_ZA128RS},
