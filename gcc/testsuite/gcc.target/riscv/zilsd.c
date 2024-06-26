@@ -50,5 +50,5 @@ LT data64 (LT a)
   return x + y;
 }
 
-/* { dg-final { scan-assembler-times "ld\t" 2 } } */
+/* { dg-final { scan-assembler-times "ld\t" 1 } } */
 /* { dg-final { scan-assembler-times "sd\t" 3 } } */
