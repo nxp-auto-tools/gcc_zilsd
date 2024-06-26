@@ -347,13 +347,14 @@ static const struct riscv_ext_version riscv_ext_version_table[] =
 
   {"zmmul", ISA_SPEC_CLASS_NONE, 1, 0},
 
-  {"zca",  ISA_SPEC_CLASS_NONE, 1, 0},
-  {"zcb",  ISA_SPEC_CLASS_NONE, 1, 0},
-  {"zce",  ISA_SPEC_CLASS_NONE, 1, 0},
-  {"zcf",  ISA_SPEC_CLASS_NONE, 1, 0},
-  {"zcd",  ISA_SPEC_CLASS_NONE, 1, 0},
-  {"zcmp", ISA_SPEC_CLASS_NONE, 1, 0},
-  {"zcmt", ISA_SPEC_CLASS_NONE, 1, 0},
+  {"zca",    ISA_SPEC_CLASS_NONE, 1, 0},
+  {"zcb",    ISA_SPEC_CLASS_NONE, 1, 0},
+  {"zce",    ISA_SPEC_CLASS_NONE, 1, 0},
+  {"zcf",    ISA_SPEC_CLASS_NONE, 1, 0},
+  {"zcd",    ISA_SPEC_CLASS_NONE, 1, 0},
+  {"zcmp",   ISA_SPEC_CLASS_NONE, 1, 0},
+  {"zcmt",   ISA_SPEC_CLASS_NONE, 1, 0},
+  {"zcmlsd", ISA_SPEC_CLASS_NONE, 1, 0},
 
   {"smaia",     ISA_SPEC_CLASS_NONE, 1, 0},
   {"smepmp",    ISA_SPEC_CLASS_NONE, 1, 0},
@@ -1726,6 +1727,7 @@ static const riscv_ext_flag_table_t riscv_ext_flag_table[] =
   {"zcd",     &gcc_options::x_riscv_zc_subext, MASK_ZCD},
   {"zcmp",    &gcc_options::x_riscv_zc_subext, MASK_ZCMP},
   {"zcmt",    &gcc_options::x_riscv_zc_subext, MASK_ZCMT},
+  {"zcmlsd",  &gcc_options::x_riscv_zc_subext, MASK_ZCMLSD},
 
   {"svinval", &gcc_options::x_riscv_sv_subext, MASK_SVINVAL},
   {"svnapot", &gcc_options::x_riscv_sv_subext, MASK_SVNAPOT},
