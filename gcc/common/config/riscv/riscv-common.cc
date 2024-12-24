@@ -83,6 +83,10 @@ static const riscv_implied_info_t riscv_implied_info[] =
   {"zfinx", "zicsr"},
   {"zdinx", "zicsr"},
 
+  {"zclsd", "zilsd"},
+  {"zilsd", "zicsr"},
+  {"zclsd", "zicsr"},
+
   {"zk", "zkn"},
   {"zk", "zkr"},
   {"zk", "zkt"},
@@ -251,7 +255,7 @@ static const struct riscv_ext_version riscv_ext_version_table[] =
   {"zifencei", ISA_SPEC_CLASS_20190608, 2, 0},
 
   {"zicond", ISA_SPEC_CLASS_NONE, 1, 0},
-  {"zilsd",ISA_SPEC_CLASS_NONE, 2, 2},
+  {"zilsd",ISA_SPEC_CLASS_NONE, 1, 0},
 
   {"za64rs",  ISA_SPEC_CLASS_NONE, 1, 0},
   {"za128rs", ISA_SPEC_CLASS_NONE, 1, 0},
@@ -354,7 +358,7 @@ static const struct riscv_ext_version riscv_ext_version_table[] =
   {"zcd",    ISA_SPEC_CLASS_NONE, 1, 0},
   {"zcmp",   ISA_SPEC_CLASS_NONE, 1, 0},
   {"zcmt",   ISA_SPEC_CLASS_NONE, 1, 0},
-  {"zcmlsd", ISA_SPEC_CLASS_NONE, 1, 0},
+  {"zclsd",  ISA_SPEC_CLASS_NONE, 1, 0},
 
   {"smaia",     ISA_SPEC_CLASS_NONE, 1, 0},
   {"smepmp",    ISA_SPEC_CLASS_NONE, 1, 0},
@@ -1330,6 +1334,13 @@ riscv_subset_list::check_conflict_ext ()
 	      "%<-march=%s%>: z*inx conflicts with floating-point "
 	      "extensions",
 	      m_arch);
+  if (lookup ("zilsd") && m_xlen == 64)
+    error_at (m_loc, "%<-march=%s%>: zilsd extension supports in rv32 only",
+	      m_arch);
+
+  if (lookup ("zclsd") && m_xlen == 64)
+    error_at (m_loc, "%<-march=%s%>: zclsd extension supports in rv32 only",
+	      m_arch);
 
   /* 'H' hypervisor extension requires base ISA with 32 registers.  */
   if (lookup ("e") && lookup ("h"))
@@ -1727,7 +1738,7 @@ static const riscv_ext_flag_table_t riscv_ext_flag_table[] =
   {"zcd",     &gcc_options::x_riscv_zc_subext, MASK_ZCD},
   {"zcmp",    &gcc_options::x_riscv_zc_subext, MASK_ZCMP},
   {"zcmt",    &gcc_options::x_riscv_zc_subext, MASK_ZCMT},
-  {"zcmlsd",  &gcc_options::x_riscv_zc_subext, MASK_ZCMLSD},
+  {"zclsd",   &gcc_options::x_riscv_zc_subext, MASK_ZCLSD},
 
   {"svinval", &gcc_options::x_riscv_sv_subext, MASK_SVINVAL},
   {"svnapot", &gcc_options::x_riscv_sv_subext, MASK_SVNAPOT},

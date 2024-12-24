@@ -436,7 +436,7 @@ Mask(ZCMP) Var(riscv_zc_subext)
 
 Mask(ZCMT) Var(riscv_zc_subext)
 
-Mask(ZCMLSD) Var(riscv_zi_subext)
+Mask(ZCLSD) Var(riscv_zc_subext)
 
 Mask(XCVBI) Var(riscv_xcv_subext)
 
